@@ -1,0 +1,8 @@
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        prev,next=0,nums[0]
+        for i in nums[1:]:
+            incl,excl=prev+i,next
+            maxrob=max(incl,excl)
+            prev,next=next,maxrob
+        return next
